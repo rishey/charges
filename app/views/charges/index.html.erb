@@ -1,1 +1,47 @@
-index.html.erb
+<h1>Failed Charges</h1>
+<table class='failed'>
+ <tr>
+    <th>Cust Name</th>
+    <th>Amount</th>
+    <th>Date Failed</th>
+  </tr>
+<% @failed_charges.each do |charge|  %>
+  <tr class='failed_charge'>
+    <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
+    <td><%= charge.amount/100.to_f %></td>
+    <td><%= charge.created_at.to_date %></td>
+  </tr>
+<% end %>
+<table>
+
+<h1 >Disputed Charges</h1>
+<table class='disputed' >
+ <tr>
+    <th>Cust Name</th>
+    <th>Amount</th>
+    <th>Date Disputed</th>
+  </tr>
+<% @disputed_charges.each do |charge|  %>
+  <tr  class='disputed_charge'>
+    <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
+    <td><%= charge.amount/100.to_f %></td>
+    <td><%= charge.created_at.to_date %></td>
+  </tr>
+<% end %>
+</table>
+
+<h1 >Successful Charges</h1>
+<table class='successful'>
+ <tr >
+    <th>Cust Name</th>
+    <th>Amount</th>
+    <th>Date</th>
+  </tr>
+<% @successful_charges.each do |charge|  %>
+  <tr class='successful_charge'>
+    <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
+    <td><%= charge.amount/100.to_f %></td>
+    <td><%= charge.created_at.to_date %></td>
+  </tr>
+<% end %>
+</table>
