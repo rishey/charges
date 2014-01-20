@@ -1,14 +1,15 @@
 class Charge < ActiveRecord::Base
   belongs_to :customer
+  before_save :compute_status
 
-  def status
+  def compute_status
     if self.paid == true && self.refunded == false
-      "successful"
+      self.status = "successful"
     elsif self.paid == true && self.refunded == true
-      "disputed"
+      self.status = "disputed"
     else
-      "failed"
+      self.status = "failed"
     end
-
   end
+
 end
