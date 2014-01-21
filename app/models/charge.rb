@@ -3,7 +3,7 @@ class Charge < ActiveRecord::Base
   before_save :compute_status
   validates :created, :amount, :currency, :customer_id,  presence: true
   validates_inclusion_of :paid, :refunded, :in => [true, false]
-
+  validates :created, length: { is: 10 }
 
   def compute_status
     if self.paid == true && self.refunded == false
