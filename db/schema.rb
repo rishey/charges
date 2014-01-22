@@ -15,10 +15,10 @@ ActiveRecord::Schema.define(version: 20140120222325) do
 
   create_table "charges", force: true do |t|
     t.date     "created"
-    t.boolean  "paid"
+    t.boolean  "paid",        null: false
     t.integer  "amount"
     t.string   "currency"
-    t.boolean  "refunded"
+    t.boolean  "refunded",    null: false
     t.integer  "customer_id"
     t.datetime "created_at"
     t.datetime "updated_at"

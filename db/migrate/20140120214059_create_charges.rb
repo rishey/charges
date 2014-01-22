@@ -2,10 +2,10 @@ class CreateCharges < ActiveRecord::Migration
   def change
     create_table :charges do |t|
       t.date :created
-      t.boolean :paid
+      t.boolean :paid, :null => false
       t.integer :amount
       t.string :currency
-      t.boolean :refunded
+      t.boolean :refunded, :null => false
       t.integer :customer_id
 
       t.timestamps
