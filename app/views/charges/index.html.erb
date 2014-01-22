@@ -1,6 +1,5 @@
-<% @heading = 'failed'; @type = @failed %>
-<%= render 'charge' %>
-<% @heading = 'disputed'; @type = @disputed %>
-<%= render 'charge' %>
-<% @heading = 'successful'; @type = @successful %>
-<%= render 'charge' %>
+<% @all_charges.each do |charge_type| %>
+   <% @heading = charge_type.last.status; @type = charge_type %>
+   <%= render 'charge' %>
+<% end %>
+
