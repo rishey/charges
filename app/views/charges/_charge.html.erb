@@ -6,7 +6,7 @@
     <th>Date</th>
   </tr>
 <% @type.each do |charge|  %>
-  <tr>
+  <tr class=<%= @heading %>_charge >
     <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
     <td class = 'money-cell'><%= charge.money %></td>
     <td><%= charge.status_date %></td>
