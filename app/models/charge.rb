@@ -19,4 +19,8 @@ class Charge < ActiveRecord::Base
    "%.2f #{self[:currency]}" % self[:amount]
   end
 
+  def status_date
+    Date.parse(DateTime.strptime(self.created.to_s,'%s').to_s).strftime("%m/%d/%Y")
+  end
+
 end
