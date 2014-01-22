@@ -8,7 +8,7 @@
 <% @failed_charges.each do |charge|  %>
   <tr class='failed_charge'>
     <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
-    <td><%= charge.amount/100.to_f %></td>
+    <td class = 'money-cell'><%= charge.amount/100.to_f %></td>
     <td><%= DateTime.strptime(charge.created.to_s,'%s').to_date %></td>
   </tr>
 <% end %>

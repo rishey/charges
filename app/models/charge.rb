@@ -15,4 +15,8 @@ class Charge < ActiveRecord::Base
     end
   end
 
+  def money
+   "%.2f #{self[:currency]}" % self[:amount]
+  end
+
 end
