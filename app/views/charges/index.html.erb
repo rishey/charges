@@ -1,47 +1,6 @@
-<h1>Failed Charges</h1>
-<table class='failed'>
- <tr>
-    <th>Cust Name</th>
-    <th>Amount</th>
-    <th>Date Failed</th>
-  </tr>
-<% @failed_charges.each do |charge|  %>
-  <tr>
-    <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
-    <td class = 'money-cell'><%= charge.money %></td>
-    <td><%= charge.status_date %></td>
-  </tr>
-<% end %>
-<table>
-
-<h1 >Disputed Charges</h1>
-<table class='disputed' >
- <tr>
-    <th>Cust Name</th>
-    <th>Amount</th>
-    <th>Date Disputed</th>
-  </tr>
-<% @disputed_charges.each do |charge|  %>
-  <tr>
-    <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
-    <td><%= charge.amount/100.to_f %></td>
-    <td><%= DateTime.strptime(charge.created.to_s,'%s').to_date %></td>
-  </tr>
-<% end %>
-</table>
-
-<h1 >Successful Charges</h1>
-<table class='successful'>
- <tr >
-    <th>Cust Name</th>
-    <th>Amount</th>
-    <th>Date</th>
-  </tr>
-<% @successful_charges.each do |charge|  %>
-  <tr>
-    <td><%= charge.customer.first_name+" "+charge.customer.last_name %></td>
-    <td><%= charge.amount/100.to_f %></td>
-    <td><%= DateTime.strptime(charge.created.to_s,'%s').to_date %></td>
-  </tr>
-<% end %>
-</table>
+<% @heading = 'failed'; @type = @failed %>
+<%= render 'charge' %>
+<% @heading = 'disputed'; @type = @disputed %>
+<%= render 'charge' %>
+<% @heading = 'successful'; @type = @successful %>
+<%= render 'charge' %>
