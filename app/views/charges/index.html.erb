@@ -1,5 +1,7 @@
 <% @all_charges.each do |charge_type| %>
-   <% @heading = charge_type.last.status; @type = charge_type %>
-   <%= render 'charge' %>
+
+<%= render 'charge', type: charge_type, heading: charge_type.last.status
+%>
+
 <% end %>
 
